@@ -1,0 +1,25 @@
+FLOW checkpoint restored
+FLOW data loaded, shape=%s torch.Size([1, 2, 79, 224, 224])
+Norm of logits: 7.159647
+
+Top classes and probabilities
+0.00639061 1.00478 playing paintball
+0.00591373 0.927225 crying
+0.00566298 0.8839 mowing lawn
+0.00557869 0.868904 playing harp
+0.00555576 0.864784 bowling
+0.00549374 0.853559 kissing
+0.00547425 0.850004 abseiling
+0.00526581 0.811183 yoga
+0.00519104 0.796883 playing organ
+0.00495704 0.750759 archery
+0.00492634 0.744545 blowing glass
+0.00489624 0.738417 dying hair
+0.0048097 0.720584 reading book
+0.00470855 0.699329 ice climbing
+0.00463767 0.68416 climbing tree
+0.00461954 0.680245 stretching leg
+0.00449747 0.653464 pumping gas
+0.00447083 0.647522 smoking
+0.00443342 0.63912 walking the dog
+0.00443036 0.638429 singing

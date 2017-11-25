@@ -1,0 +1,25 @@
+RGB checkpoint restored
+RGB data loaded, shape=%s torch.Size([1, 3, 79, 224, 224])
+Norm of logits: 4.988410
+
+Top classes and probabilities
+0.00481149 0.686042 baby waking up
+0.00445708 0.609529 punching bag
+0.00435016 0.585248 passing American football (not in game)
+0.00434472 0.583997 mowing lawn
+0.00434183 0.583331 singing
+0.00431595 0.577353 beatboxing
+0.00418031 0.54542 jetskiing
+0.00409195 0.524056 driving car
+0.00406294 0.516941 dancing ballet
+0.00405746 0.515592 reading book
+0.0039915 0.499202 tobogganing
+0.00391408 0.479615 stretching arm
+0.00390557 0.477439 playing paintball
+0.00389287 0.474181 climbing tree
+0.00385248 0.463752 surfing crowd
+0.00383686 0.45969 zumba
+0.003831 0.458162 washing dishes
+0.00380684 0.451836 cleaning floor
+0.00378198 0.445284 ski jumping
+0.00374292 0.4349 recording music
