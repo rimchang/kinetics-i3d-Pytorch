@@ -58,7 +58,7 @@ if __name__ == '__main__':
     if eval_type in ['rgb', 'joint']:
 
         rgb_i3d = I3D(input_channel=3)
-
+        rgb_i3d.eval()
         if args.imagenet_pretrained:
             state_dict = torch.load(_CHECKPOINT_PATHS['rgb_imagenet'])
             rgb_i3d.load_state_dict(state_dict)
@@ -70,7 +70,7 @@ if __name__ == '__main__':
 
         rgb_sample = torch.from_numpy(np.load(_SAMPLE_PATHS['rgb']))
         rgb_sample = Variable(rgb_sample.permute(0, 4, 1, 2 ,3))
-        print('RGB data loaded, shape=%s', str(rgb_sample.data.size()))
+        print('RGB data loaded, shape=', str(rgb_sample.data.size()))
 
         rbg_score, rgb_logits = rgb_i3d(rgb_sample)
 
@@ -78,7 +78,7 @@ if __name__ == '__main__':
     if eval_type in ['flow', 'joint']:
 
         flow_i3d = I3D(input_channel=2)
-
+        flow_i3d.eval()
         if args.imagenet_pretrained:
             state_dict = torch.load(_CHECKPOINT_PATHS['flow_imagenet'])
             flow_i3d.load_state_dict(state_dict)

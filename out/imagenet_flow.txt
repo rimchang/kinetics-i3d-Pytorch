@@ -1,25 +1,25 @@
 FLOW checkpoint restored
 FLOW data loaded, shape=%s torch.Size([1, 2, 79, 224, 224])
-Norm of logits: 7.159647
+Norm of logits: 67.969208
 
 Top classes and probabilities
-0.00639061 1.00478 playing paintball
-0.00591373 0.927225 crying
-0.00566298 0.8839 mowing lawn
-0.00557869 0.868904 playing harp
-0.00555576 0.864784 bowling
-0.00549374 0.853559 kissing
-0.00547425 0.850004 abseiling
-0.00526581 0.811183 yoga
-0.00519104 0.796883 playing organ
-0.00495704 0.750759 archery
-0.00492634 0.744545 blowing glass
-0.00489624 0.738417 dying hair
-0.0048097 0.720584 reading book
-0.00470855 0.699329 ice climbing
-0.00463767 0.68416 climbing tree
-0.00461954 0.680245 stretching leg
-0.00449747 0.653464 pumping gas
-0.00447083 0.647522 smoking
-0.00443342 0.63912 walking the dog
-0.00443036 0.638429 singing
+0.88964 16.04 playing cricket
+0.0750945 13.5679 hurling (sport)
+0.0194603 12.2175 playing squash or racquetball
+0.0044199 10.7353 catching or throwing softball
+0.00374539 10.5697 playing tennis
+0.00329425 10.4413 catching or throwing baseball
+0.00193088 9.90711 hitting baseball
+0.000619899 8.77094 playing badminton
+0.000282237 7.98413 hammer throw
+0.000233811 7.79589 sword fighting
+0.000111474 7.05518 catching or throwing frisbee
+9.4556e-05 6.89057 pumping fist
+7.73404e-05 6.6896 throwing ball
+6.55315e-05 6.52391 applauding
+6.41171e-05 6.50209 playing basketball
+5.68882e-05 6.38247 playing kickball
+5.29944e-05 6.31157 shooting goal (soccer)
+5.13637e-05 6.28031 dancing ballet
+5.12096e-05 6.27731 dodgeball
+4.55471e-05 6.16013 dribbling basketball

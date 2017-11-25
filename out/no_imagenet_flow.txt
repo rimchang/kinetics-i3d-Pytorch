@@ -1,25 +1,25 @@
 FLOW checkpoint restored
 FLOW data loaded, shape=%s torch.Size([1, 2, 79, 224, 224])
-Norm of logits: 7.047144
+Norm of logits: 86.038055
 
 Top classes and probabilities
-0.00673694 1.05535 kissing
-0.00658504 1.03255 ice climbing
-0.00656538 1.02956 crying
-0.00549448 0.851489 reading book
-0.00546406 0.845938 yoga
-0.00539224 0.832706 abseiling
-0.00531226 0.817762 stretching leg
-0.00512708 0.782281 rock climbing
-0.00508062 0.773179 passing American football (not in game)
-0.0050465 0.76644 baby waking up
-0.00486915 0.730665 climbing tree
-0.00486123 0.729037 getting a tattoo
-0.00458657 0.670878 opening present
-0.00457172 0.667636 pumping gas
-0.00456121 0.665334 playing paintball
-0.00454778 0.662385 washing dishes
-0.00451054 0.654162 massaging back
-0.0044704 0.645223 dying hair
-0.00444593 0.639734 ice skating
-0.00435927 0.62005 golf putting
+0.794482 16.0555 playing cricket
+0.0681696 13.5998 hitting baseball
+0.036381 12.9718 hurling (sport)
+0.0325903 12.8618 playing squash or racquetball
+0.0158313 12.1398 catching or throwing softball
+0.0105122 11.7303 catching or throwing baseball
+0.0082179 11.4841 playing badminton
+0.00668174 11.2772 dodgeball
+0.00623786 11.2084 playing tennis
+0.00611869 11.1892 sword fighting
+0.00345682 10.6182 playing basketball
+0.00155668 9.82036 passing American football (in game)
+0.00121009 9.5685 shooting goal (soccer)
+0.00087549 9.24483 dunking basketball
+0.000850671 9.21607 catching or throwing frisbee
+0.000760997 9.10468 playing volleyball
+0.000645894 8.94068 kicking field goal
+0.000593901 8.85676 cheerleading
+0.000500012 8.68468 high kick
+0.000477547 8.63871 shooting basketball

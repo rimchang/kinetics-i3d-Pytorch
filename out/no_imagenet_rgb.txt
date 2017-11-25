@@ -1,25 +1,25 @@
 RGB checkpoint restored
-RGB data loaded, shape=%s torch.Size([1, 3, 79, 224, 224])
-Norm of logits: 4.988410
+RGB data loaded, shape= torch.Size([1, 3, 79, 224, 224])
+Norm of logits: 87.832466
 
 Top classes and probabilities
-0.00481149 0.686042 baby waking up
-0.00445708 0.609529 punching bag
-0.00435016 0.585248 passing American football (not in game)
-0.00434472 0.583997 mowing lawn
-0.00434183 0.583331 singing
-0.00431595 0.577353 beatboxing
-0.00418031 0.54542 jetskiing
-0.00409195 0.524056 driving car
-0.00406294 0.516941 dancing ballet
-0.00405746 0.515592 reading book
-0.0039915 0.499202 tobogganing
-0.00391408 0.479615 stretching arm
-0.00390557 0.477439 playing paintball
-0.00389287 0.474181 climbing tree
-0.00385248 0.463752 surfing crowd
-0.00383686 0.45969 zumba
-0.003831 0.458162 washing dishes
-0.00380684 0.451836 cleaning floor
-0.00378198 0.445284 ski jumping
-0.00374292 0.4349 recording music
+0.992801 18.196 playing cricket
+0.00270409 12.2902 robot dancing
+0.00105943 11.3532 hurling (sport)
+0.000762956 11.0249 breakdancing
+0.000566471 10.7271 shooting goal (soccer)
+0.00036352 10.2835 tap dancing
+0.000299991 10.0915 catching or throwing baseball
+0.000213483 9.75126 pumping fist
+0.000133841 9.28435 hitting baseball
+0.000122314 9.19429 celebrating
+7.78389e-05 8.74234 applauding
+7.62979e-05 8.72234 dancing charleston
+7.51256e-05 8.70686 headbutting
+7.18261e-05 8.66195 playing badminton
+6.174e-05 8.51063 juggling fire
+4.58185e-05 8.21239 catching or throwing softball
+4.19139e-05 8.12332 roller skating
+3.59564e-05 7.97001 passing American football (not in game)
+3.42862e-05 7.92244 dancing gangnam style
+3.32401e-05 7.89145 marching

@@ -7,8 +7,8 @@ class BasicConv3d(nn.Module):
         self.conv = nn.Conv3d(in_planes, out_planes, kernel_size=kernel_size, stride=stride, padding=padding,
                               bias=False)  # verify bias false
 
-        # verify defalt value
-        self.bn = nn.BatchNorm3d(out_planes, eps=0.001, momentum=0, affine=True)
+        # verify defalt value in sonnet
+        self.bn = nn.BatchNorm3d(out_planes, eps=1e-3, momentum=0.001, affine=True)
         self.relu = nn.ReLU(inplace=True)
 
     def forward(self, x):
