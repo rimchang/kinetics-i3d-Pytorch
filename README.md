@@ -21,7 +21,7 @@ you can evaluate sample
 ```
 
 
-There is a slight difference from the original model.
+There is a slight difference from the original model. you can compare original model output with pytorch model output in out directory
 
 ### Original Model (imagenet_joint.txt)
 
@@ -78,3 +78,9 @@ Top classes and probabilities
 1.00397e-13 12.9109 golf putting
 
 ```
+
+
+Reference:
+
+[kinetics-i3d](https://github.com/deepmind/kinetics-i3d)  
+[tensorflow-model-zoo.torch](https://github.com/Cadene/tensorflow-model-zoo.torch)
