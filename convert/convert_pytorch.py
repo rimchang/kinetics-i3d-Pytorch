@@ -15,14 +15,26 @@ def load_conv3d(state_dict, modality, dump_dir, name_pth, name_tf):
     h5f = h5py.File(dump_dir + modality + "/" + name_tf + "/" + name_tf.split('/')[-1] + '.h5', 'r')
 
     # weight need (out_channel, in_channel, L, H, W)
-    state_dict[name_pth + '.conv.weight'] = torch.from_numpy(h5f['weights'][()]).permute(4, 3, 0, 1, 2)
-    out_planes = state_dict[name_pth + '.conv.weight'].size(0)
-    # print(name_pth, state_dict[name_pth+'.conv.weight'].size())
+    weight = torch.from_numpy(h5f['weights'][()]).permute(4, 3, 0, 1, 2)
+    out_planes = weight.size(0)
+    gamma = torch.ones(out_planes)
+    beta = torch.from_numpy(h5f['beta'][()]).view(out_planes)
+    mean = torch.from_numpy(h5f['mean'][()]).view(out_planes)
+    var = torch.from_numpy(h5f['var'][()]).view(out_planes)
+
+    assert state_dict[name_pth + '.conv.weight'].size() == weight.size()
+    assert state_dict[name_pth + '.bn.weight'].size() == gamma.size()
+    assert state_dict[name_pth + '.bn.bias'].size() == beta.size()
+    assert state_dict[name_pth + '.bn.running_mean'].size() == mean.size()
+    assert state_dict[name_pth + '.bn.running_var'].size() == var.size()
+
+    state_dict[name_pth + '.conv.weight'] = weight
+
     # TODO why ones?
-    state_dict[name_pth + '.bn.weight'] = torch.ones(out_planes)
-    state_dict[name_pth + '.bn.bias'] = torch.from_numpy(h5f['beta'][()]).view(out_planes)
-    state_dict[name_pth + '.bn.running_mean'] = torch.from_numpy(h5f['mean'][()]).view(out_planes)
-    state_dict[name_pth + '.bn.running_var'] = torch.from_numpy(h5f['var'][()]).view(out_planes)
+    state_dict[name_pth + '.bn.weight'] = gamma
+    state_dict[name_pth + '.bn.bias'] = beta
+    state_dict[name_pth + '.bn.running_mean'] = mean
+    state_dict[name_pth + '.bn.running_var'] = var
     h5f.close()
 
 def load_Mixed(state_dict, modality, dump_dir='./data/dump', name_pth='features.5', name_tf='Mixed_3b'):
@@ -39,7 +51,6 @@ def load_Mixed(state_dict, modality, dump_dir='./data/dump', name_pth='features.
     load_conv3d(state_dict, modality, dump_dir, name_pth + '.branch3.1',
                 name_tf=name_tf + '/Branch_3/Conv3d_0b_1x1')
 
-    # 얘만 이름이 좀 다르다
 
 def load_Mixed_5b(state_dict, modality, dump_dir='./data/dump', name_pth='features.14', name_tf='Mixed_5b'):
     load_conv3d(state_dict, modality, dump_dir, name_pth + '.branch0.0',
@@ -61,9 +72,15 @@ def load_Logits(state_dict, modality, dump_dir='./data/dump', name_pth='features
                 name_tf='Logits/Conv3d_0c_1x1'):
     h5f = h5py.File(dump_dir + modality + "/" + name_tf + "/" + name_tf.split('/')[-1] + '.h5', 'r')
 
+    weight = torch.from_numpy(h5f['weights'][()]).permute(4, 3, 0, 1, 2)
+    bias = torch.from_numpy(h5f['bias'][()])
+
+    assert state_dict[name_pth + '.weight'].size() == weight.size()
+    assert state_dict[name_pth + '.bias'].size() == bias.size()
+
     # weight need (out_channel, in_channel, L, H, W)
-    state_dict[name_pth + '.weight'] = torch.from_numpy(h5f['weights'][()]).permute(4, 3, 0, 1, 2)
-    state_dict[name_pth + '.bias'] = torch.from_numpy(h5f['bias'][()])
+    state_dict[name_pth + '.weight'] = weight
+    state_dict[name_pth + '.bias'] = bias
 
     h5f.close()
 
@@ -99,7 +116,10 @@ if __name__ == '__main__':
     modality = args.modality
     dump_dir = args.dump_dir
 
-    state_dict = {}
+    input_channel = 3 if 'rgb' in modality else 2
+    i3d = I3D(input_channel=input_channel)
+
+    state_dict = i3d.state_dict()
     load_conv3d(state_dict, modality, dump_dir, name_pth='features.0', name_tf='Conv3d_1a_7x7')
     load_conv3d(state_dict, modality, dump_dir, name_pth='features.2', name_tf='Conv3d_2b_1x1')
     load_conv3d(state_dict, modality, dump_dir, name_pth='features.3', name_tf='Conv3d_2c_3x3')
@@ -115,8 +135,5 @@ if __name__ == '__main__':
     load_Mixed(state_dict, modality, dump_dir, name_pth='features.15', name_tf='Mixed_5c')
     load_Logits(state_dict, modality, dump_dir, name_pth='features.18', name_tf='Logits/Conv3d_0c_1x1')
 
-
-    input_channel = 3 if 'rgb' in modality else 2
-    i3d = I3D(input_channel=input_channel)
     i3d.load_state_dict(state_dict)
     torch.save(i3d.state_dict(), target_dir)
