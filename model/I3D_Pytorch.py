@@ -280,7 +280,7 @@ class Mixed_5c(nn.Module):
 
 class I3D(nn.Module):
 
-    def __init__(self, num_classes=400, dropout_keep_prob = 1, input_channel = 3, spatial_squeeze=True):
+    def __init__(self, num_classes=400, dropout_drop_prob = 0.5, input_channel = 3, spatial_squeeze=True):
         super(I3D, self).__init__()
         self.features = nn.Sequential(
             BasicConv3d(input_channel, 64, kernel_size=7, stride=2, padding=3), # (64, 32, 112, 112)
@@ -300,7 +300,7 @@ class I3D(nn.Module):
             Mixed_5b(), # (832, 8, 7, 7)
             Mixed_5c(), # (1024, 8, 7, 7)
             nn.AvgPool3d(kernel_size=(2, 7, 7), stride=1),# (1024, 8, 1, 1)
-            nn.Dropout3d(dropout_keep_prob),
+            nn.Dropout3d(dropout_drop_prob),
             nn.Conv3d(1024, num_classes, kernel_size=1, stride=1, bias=True),# (400, 8, 1, 1)
         )
         self.spatial_squeeze = spatial_squeeze
